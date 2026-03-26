@@ -16,5 +16,5 @@ public class VueloDTO
     [StringLength(2)]
     public string Destino { get; set; } = string.Empty;
     [Required(ErrorMessage = "La fecha es obligatoria")]
-    public DateTime FechaSalida { get; set; }
+    public string FechaSalida { get; set; } = string.Empty;
 }

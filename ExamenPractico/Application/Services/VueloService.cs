@@ -52,7 +52,7 @@ namespace ExamenPractico.Application.Services
                 NumeroVuelo = x.NumeroVuelo,
                 Origen = x.Origen,
                 Destino = x.Destino,
-                FechaSalida = x.FechaSalida.Date
+                FechaSalida = x.FechaSalida.Date.ToString("yyyy/MM/dd HH:mm:ss")
             })
             .ToList();
 
