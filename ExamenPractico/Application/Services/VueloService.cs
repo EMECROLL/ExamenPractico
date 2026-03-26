@@ -35,10 +35,10 @@ namespace ExamenPractico.Application.Services
             return insertados == nuevosVuelos.Count;
         }
 
-        public List<VueloDTO> GetVuelosByDateRange(string fechaInicio, string fechaFin)
+        public List<VueloDTO> GetVuelosByDateRange(DateTime fechaInicio, DateTime fechaFin)
         {
-            var inicio = DateTime.Parse(fechaInicio).Date;
-            var fin = DateTime.Parse(fechaFin).Date.AddDays(1).AddTicks(-1);
+            var inicio = fechaInicio.Date;
+            var fin = fechaFin.Date;
 
             if (inicio > fin)
             {
@@ -46,13 +46,13 @@ namespace ExamenPractico.Application.Services
             }
 
             var vuelos = _dataService.Vuelos
-            .Where(x => x.FechaSalida >= inicio && x.FechaSalida <= fin)
+            .Where(x => x.FechaSalida.Date >= inicio && x.FechaSalida.Date <= fin)
             .Select(x => new VueloDTO
             {
                 NumeroVuelo = x.NumeroVuelo,
                 Origen = x.Origen,
                 Destino = x.Destino,
-                FechaSalida = x.FechaSalida.ToString("yyyy/MM/dd hh:mm:ss")
+                FechaSalida = x.FechaSalida.Date
             })
             .ToList();
 

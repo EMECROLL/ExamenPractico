@@ -15,8 +15,8 @@ namespace ExamenPractico.API.Controllers
         }
 
         
-        [HttpGet] // Formato de Fechas: dd/MM/yyyy
-        public IActionResult GetVuelosByDateRange([FromQuery] string fechaInicio, [FromQuery] string fechaFin)
+        [HttpGet] // Formato de Fechas recomendado: yyyy-MM-dd
+        public IActionResult GetVuelosByDateRange([FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
         {
             try
             {

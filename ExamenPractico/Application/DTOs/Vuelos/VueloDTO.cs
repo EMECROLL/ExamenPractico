@@ -1,4 +1,3 @@
-using ExamenPractico.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExamenPractico.Application.DTOs.Vuelos;
@@ -17,5 +16,5 @@ public class VueloDTO
     [StringLength(2)]
     public string Destino { get; set; } = string.Empty;
     [Required(ErrorMessage = "La fecha es obligatoria")]
-    public string FechaSalida { get; set; } = string.Empty;
+    public DateTime FechaSalida { get; set; }
 }
