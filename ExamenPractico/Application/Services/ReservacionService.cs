@@ -14,16 +14,19 @@ public class ReservacionService : IReservacionService
         _pasajeroService = pasajeroService;
     }
 
-    public bool CrearReservacion(ReservacionCreateDTO dto)
+    public void CrearReservacion(ReservacionCreateDTO dto)
     {
         if (dto is null || dto.Vuelos is null || dto.Pasajeros is null)
         {
-            return false;
+            throw new ArgumentException("La reservacion enviada no es valida");
         }
 
         var vuelosCreados = _vueloService.CrearListaVuelos(dto.Vuelos);
         var pasajerosCreados = _pasajeroService.CrearListaPasajeros(dto.Pasajeros);
 
-        return vuelosCreados && pasajerosCreados;
+        if (!vuelosCreados || !pasajerosCreados)
+        {
+            throw new Exception("No se pudo crear la reservacion");
+        }
     }
 }

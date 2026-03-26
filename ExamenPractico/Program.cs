@@ -1,3 +1,4 @@
+using ExamenPractico.API.Middleware;
 using ExamenPractico.Application;
 using ExamenPractico.Infrastructure;
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

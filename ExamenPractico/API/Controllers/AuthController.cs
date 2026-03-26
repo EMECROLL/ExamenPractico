@@ -18,15 +18,8 @@ namespace ExamenPractico.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginDTO dto)
         {
-            try
-            {
-                var autorice = _authService.Login(dto);
-                return Ok(new { Autorice = autorice });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var autorice = _authService.Login(dto);
+            return Ok(new { Autorice = autorice });
         }
     }
 }

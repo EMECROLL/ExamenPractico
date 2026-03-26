@@ -42,7 +42,7 @@ namespace ExamenPractico.Application.Services
 
             if (inicio > fin)
             {
-                throw new Exception("La fecha de inicio no puede ser mayor que la fecha final");
+                throw new ArgumentException("La fecha de inicio no puede ser mayor que la fecha final");
             }
 
             var vuelos = _dataService.Vuelos

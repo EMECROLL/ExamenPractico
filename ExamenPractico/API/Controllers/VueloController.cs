@@ -18,15 +18,8 @@ namespace ExamenPractico.API.Controllers
         [HttpGet] // Formato de Fechas recomendado: yyyy-MM-dd
         public IActionResult GetVuelosByDateRange([FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
         {
-            try
-            {
-                var vuelos = _vueloService.GetVuelosByDateRange(fechaInicio, fechaFin);
-                return Ok(vuelos);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var vuelos = _vueloService.GetVuelosByDateRange(fechaInicio, fechaFin);
+            return Ok(vuelos);
         }
     }
 }

@@ -4,5 +4,5 @@ namespace ExamenPractico.Application.Interfaces;
 
 public interface IReservacionService
 {
-    bool CrearReservacion(ReservacionCreateDTO dto);
+    void CrearReservacion(ReservacionCreateDTO dto);
 }

@@ -18,21 +18,8 @@ namespace ExamenPractico.API.Controllers
         [HttpPost]
         public IActionResult CrearReservacion([FromBody] ReservacionCreateDTO dto)
         {
-            try
-            {
-                var creado = _reservacionService.CrearReservacion(dto);
-
-                if (!creado)
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, "No se pudo crear la reservacion");
-                }
-
-                return Ok(new { Exitoso = true });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            _reservacionService.CrearReservacion(dto);
+            return Ok(new { Exitoso = true });
         }
     }
 }

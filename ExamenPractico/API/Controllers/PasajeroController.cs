@@ -25,15 +25,8 @@ namespace ExamenPractico.API.Controllers
         [HttpPost]
         public IActionResult CrearPasajero([FromBody] PasajeroCreateDTO dto)
         {
-            try
-            {
-                var pasajero = _pasajeroService.CrearPasajero(dto);
-                return Ok(pasajero);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var pasajero = _pasajeroService.CrearPasajero(dto);
+            return Ok(pasajero);
         }
     }
 }
